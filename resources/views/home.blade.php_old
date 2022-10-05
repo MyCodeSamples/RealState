@@ -1,0 +1,21 @@
+@extends('layouts.front_layout')
+
+@section('css')
+
+   i am the home page
+
+@stop
+
+
+@section('content')
+
+   i am the home page
+
+@stop
+
+
+@section('js')
+
+   i am the home page
+
+@stop
