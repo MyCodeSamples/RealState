@@ -53,7 +53,7 @@ class AmenetyController extends Controller
 
 
         $ameneties->name=$request->name;
-
+        $ameneties->status=$request->status;
 
 
         $ameneties->save();

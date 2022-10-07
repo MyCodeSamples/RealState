@@ -4,10 +4,19 @@
     @endsection
     <div class="p-4">
         <div class="card p-4">
+            <div class="card p-4">
+                <div class="card-header" style="margin: 1px;">
+                    <a href="{{route('customer.list')}}" class="dt-button create-new btn btn-primary"
+                        tabindex="0" aria-controls="DataTables_Table_0" style="float: right;">
+                        <span>
+                            <span class="d-none d-sm-inline-block">Back</span>
+                        </span>
+                    </a>
+                    <h5 style="width: 50%;margin: 10px;"> Edit Customer!</h5>
+            </div>
     <div style="padding-left: 100px;padding-right: 100px;">
     <form action="{{Route('customer.update', $customer->id)}}" method="POST" enctype="multipart/form-data" class="pl-5" >
-        <h4> Edit Customer!</h4>
-        <hr/>
+
         @csrf
     <div class="row form-group">
         {{-- <div class="col-md-6">

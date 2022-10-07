@@ -49,25 +49,18 @@
                             <td>{{ $list->location }}</td> --}}
                            <td>
 
-                            <select  name=""  onchange="change_status_service($(this).find('option:selected').attr('data-id'),$(this).val())"
-                          @if ($list->status=='Active')
+                            <select class="form-control"  onchange="change_status_service($(this).find('option:selected').attr('data-id'),$(this).val())">
 
-                                style="background-color:green; color:white;font-size:20px;width:110px;height:45px;"
-                               @else
-                               style="background-color:rgb(219, 22, 22); color:white;font-size:20px;width:110px;height:45px;"
-
-                            @endif>
-
-                                <option value="Active" {{$list->status=='Active'?'selected':''}} data-id="{{$list->id}}"  style="background-color:green; color:white;">Active</option>
-                                <option value="Inactive" {{$list->status=='Inactive'?'selected':''}} data-id="{{$list->id}}"  style="background-color:rgb(219, 22, 22); color:white;">InActive</option>
+                                <option value="Active" {{$list->status=='Active'?'selected':''}} data-id="{{$list->id}}"  >Active</option>
+                                <option value="Inactive" {{$list->status=='Inactive'?'selected':''}} data-id="{{$list->id}}">InActive</option>
                             </select>
                             {{-- <input data-id="{{$list->id}}" onchange="change_status(this);" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="Inactive" {{ $list->status=='Active' ? 'checked' : '' }}> --}}
 
                         </td>
 
                             <td>
-                                <a class="btn ntn-sm btn-primary" href="{{ Route('edit.service.provider', $list->id) }}" title="Edit"><i class='bx bx-edit'></i></a>
-                                <a class="btn ntn-sm btn-danger " href="javascript:void(0);" onclick="deleted('{{$list->id}}');" title="Delete"><i class='bx bxs-message-x'></i></a>
+                                <a class="btn btn-sm btn-primary" href="{{ Route('edit.service.provider', $list->id) }}" title="Edit"><i class='bx bx-edit'></i></a>
+                                <a class="btn btn-sm btn-danger " href="javascript:void(0);" onclick="deleted('{{$list->id}}');" title="Delete"><i class='bx bxs-message-x'></i></a>
 
                             </td>
                         </tr>

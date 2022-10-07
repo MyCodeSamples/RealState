@@ -4,6 +4,16 @@
     @endsection
     <div class="p-4">
         <div class="card p-4">
+            <div class="card p-4">
+                <div class="card-header" style="margin: 1px;">
+                    <a href="{{route('owner.list')}}" class="dt-button create-new btn btn-primary"
+                        tabindex="0" aria-controls="DataTables_Table_0" style="float: right;">
+                        <span>
+                            <span class="d-none d-sm-inline-block">Back</span>
+                        </span>
+                    </a>
+                    <h5 style="width: 50%;margin: 10px;"> Edit Owner!</h5>
+            </div>
     <div style="padding-left: 100px;padding-right: 100px;">
     <form action="{{Route('owner.update', $owner->id)}}" method="POST" enctype="multipart/form-data" class="pl-5" >
         <h4> Edit Owner!</h4>

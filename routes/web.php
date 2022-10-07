@@ -5,8 +5,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\StateController;
 use App\Http\Controllers\AmenetyController;
 use App\Http\Controllers\BuilderController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\customerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PropertiesController;
@@ -105,7 +108,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function (){
     Route::post('/customer-update/{id}',[customerController::class,'customer_update'])->name('customer.update');
     Route::get('/customer-delete/{id}',[customerController::class,'customer_delete'])->name('customer.delete');
     Route::post('/customer-change-status',[customerController::class,'customer_change_status'])->name('customer.change.status');
-     //manage_user/ameneties
+     //setting/ameneties
      Route::get('/ameneties-list',[AmenetyController::class,'ameneties_list'])->name('ameneties.list');
      Route::get('/ameneties-view',[AmenetyController::class,'ameneties_view'])->name('ameneties.view');
      Route::post('/ameneties-add',[AmenetyController::class,'ameneties_add'])->name('ameneties.add');
@@ -113,6 +116,30 @@ Route::prefix('admin')->middleware(['auth'])->group(function (){
      Route::post('/ameneties-update/{id}',[AmenetyController::class,'ameneties_update'])->name('ameneties.update');
      Route::get('/ameneties-delete/{id}',[AmenetyController::class,'ameneties_delete'])->name('ameneties.delete');
      Route::post('/ameneties-change-status',[AmenetyController::class,'ameneties_change_status'])->name('ameneties.change.status');
+      //setting/countries
+      Route::get('/countries-list',[CountryController::class,'countries_list'])->name('countries.list');
+      Route::get('/countries-view',[CountryController::class,'countries_view'])->name('countries.view');
+      Route::post('/countries-add',[CountryController::class,'countries_add'])->name('countries.add');
+      Route::get('/countries-edit/{id}',[CountryController::class,'countries_edit'])->name('countries.edit');
+      Route::post('/countries-update/{id}',[CountryController::class,'countries_update'])->name('countries.update');
+      Route::get('/countries-delete/{id}',[CountryController::class,'countries_delete'])->name('countries.delete');
+      Route::post('/countries-change-status',[CountryController::class,'countries_change_status'])->name('countries.change.status');
+        //setting/states
+        Route::get('/states-list',[StateController::class,'states_list'])->name('states.list');
+        Route::get('/states-view',[StateController::class,'states_view'])->name('states.view');
+        Route::post('/states-add',[StateController::class,'states_add'])->name('states.add');
+        Route::get('/states-edit/{id}',[StateController::class,'states_edit'])->name('states.edit');
+        Route::post('/states-update/{id}',[StateController::class,'states_update'])->name('states.update');
+        Route::get('/states-delete/{id}',[StateController::class,'states_delete'])->name('states.delete');
+        Route::post('/states-change-status',[StateController::class,'states_change_status'])->name('states.change.status');
+         //setting/cities
+         Route::get('/cities-list',[CityController::class,'cities_list'])->name('cities.list');
+         Route::get('/cities-view',[CityController::class,'cities_view'])->name('cities.view');
+         Route::post('/cities-add',[CityController::class,'cities_add'])->name('cities.add');
+         Route::get('/cities-edit/{id}',[CityController::class,'cities_edit'])->name('cities.edit');
+         Route::post('/cities-update/{id}',[CityController::class,'cities_update'])->name('cities.update');
+         Route::get('/cities-delete/{id}',[CityController::class,'cities_delete'])->name('cities.delete');
+         Route::post('/cities-change-status',[CityController::class,'cities_change_status'])->name('cities.change.status');
 });
 
 

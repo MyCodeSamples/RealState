@@ -1,54 +1,60 @@
 <x-layout>
     @section('title')
-        List of Ameneties
+        List of States
     @endsection
     <div class="card p-4">
         <div class="card-header" style="margin: 1px;">
-            <a href="{{route('ameneties.view')}}" class="dt-button create-new btn btn-primary"
+            <a href="{{route('states.view')}}" class="dt-button create-new btn btn-primary"
                 tabindex="0" aria-controls="DataTables_Table_0" style="float: right;">
                 <span><i class="bx bx-plus me-sm-2"></i>
-                    <span class="d-none d-sm-inline-block">Add Ameneties</span>
+                    <span class="d-none d-sm-inline-block">Add States</span>
                 </span>
             </a>
-            <h5 style="width: 50%;margin: 10px;">List of Ameneties</h5>
+            <h5 style="width: 50%;margin: 10px;">List of States</h5>
         </div>
         <div class="card-datatable table-responsive">
             <table id="myTable" class="datatables-basic table border-top ">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        {{-- <th style="width: 10%;">Country</th> --}}
+                        <th style="width: 10%;">State</th>
+                        <th style="width: 10%;">Image</th>
+                        <th style="width: 10%;">Status</th>
+                        <th style="width: 10%;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($ameneties as $list)
+                    {{-- @foreach ($states as $list)
                         <tr>
+
                             <td>{{ $list->name }}</td>
                             <td>
-                                <select class="form-control" onchange="change_status_ameneties($(this).find('option:selected').attr('data-id'),$(this).val())" >
+                                <img src="{{URL::to($list->image)}}" style="width: 20%;" alt="{{ $list->name}}">
+                            </td>
+                            <td>
+                                <select class="form-control" onchange="change_status_states($(this).find('option:selected').attr('data-id'),$(this).val())" >
                                     <option value="1" {{$list->status=='1'?'selected':''}} data-id="{{$list->id}}">Active</option>
                                     <option value="0" {{$list->status=='0'?'selected':''}} data-id="{{$list->id}}">Inactive</option>
                                 </select>
                             </td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="{{ Route('ameneties.edit', $list->id) }}" title="Edit"><i class='bx bx-edit'></i></a>
+                                <a class="btn btn-sm btn-primary" href="{{ Route('states.edit', $list->id) }}" title="Edit"><i class='bx bx-edit'></i></a>
                                 <a class="btn btn-sm btn-danger " href="javascript:void(0);" onclick="deleted('{{$list->id}}');" title="Delete"><i class='bx bxs-message-x'></i></a>
                             </td>
                         </tr>
-                    @endforeach
+                    @endforeach --}}
                 </tbody>
             </table>
         </div>
     </div>
     <script type="text/javascript">
-        function change_status_ameneties(ameneties_id,status)
+        function change_status_states(states_id,status)
         {
             $.ajax({
                     type: "post",
                     dataType: "json",
-                    url: "{{url('admin/ameneties-change-status')}}",
-                    data: { status, ameneties_id,'_token':'{{csrf_token()}}'},
+                    url: "{{url('admin/states-change-status')}}",
+                    data: { status, states_id,'_token':'{{csrf_token()}}'},
                     success: function(data){
                     console.log(data.success)
                     }
@@ -66,7 +72,7 @@
             })
             .then((willDelete) => {
              if (willDelete) {
-                window.location="{{url('/admin/ameneties-delete') }}/"+id;
+                window.location="{{url('/admin/states-delete') }}/"+id;
              }
             });
         }
